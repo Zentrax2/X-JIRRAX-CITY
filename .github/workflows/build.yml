@@ -1,0 +1,30 @@
+
+name: Build X-JIRRAX CITY PSP
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: pspdev/pspdev:latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build PSP
+        run: make
+
+      - name: Prepare PPSSPP
+        run: |
+          mkdir -p PSP/GAME/XJIRRAX_CITY
+          cp EBOOT.PBP PSP/GAME/XJIRRAX_CITY/
+          cd PSP
+          zip -r ../XJIRRAX_CITY_PPSSPP.zip GAME
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: XJIRRAX_CITY_PPSSPP
+          path: XJIRRAX_CITY_PPSSPP.zip
