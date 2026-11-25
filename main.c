@@ -1,4 +1,6 @@
+
 #include <pspkernel.h>
+
 #include "callbacks.h"
 #include "input.h"
 #include "render.h"
@@ -21,20 +23,29 @@ int main(void)
     npcInit();
     vehicleReset(&car);
 
-    while (1) {
+    while (1)
+    {
         inputPoll(&input);
-        if (input.reset) {
+
+        if (input.reset)
+        {
             vehicleReset(&car);
-        } else {
+        }
+        else
+        {
             vehicleUpdate(&car, &input);
         }
+
         npcUpdate();
 
         renderBeginFrame();
+
         cameraChase(car.x, car.z, car.yaw);
+
         worldDrawVisible(car.x, car.z);
         npcDraw(car.x, car.z);
         vehicleDraw(&car);
+
         renderEndFrame();
     }
 
