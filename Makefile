@@ -1,9 +1,17 @@
+
 TARGET = XJIRRAX_CITY
 
-# Automatically include all C source files in repository root
-OBJS = $(patsubst %.c,%.o,$(wildcard *.c))
+OBJS = \
+    callbacks.o \
+    camera.o \
+    input.o \
+    main.o \
+    npc.o \
+    render.o \
+    vehicle.o \
+    world.o
 
-INCDIR = -I. -Isrc
+INCDIR =
 CFLAGS = -O2 -G0 -Wall -Wextra
 CXXFLAGS = $(CFLAGS)
 ASFLAGS = $(CFLAGS)
