@@ -1,0 +1,9 @@
+X-JIRRAX CITY — kontrol prototipe (v0.2)
+
+D-pad kiri/kanan atau stik analog kiri : setir
+Cross (X)                              : gas
+Square (kotak)                         : rem
+Start                                  : reset posisi mobil
+
+Build: lihat README.md (GitHub Actions atau PSPSDK di PC).
+Output: EBOOT.PBP
